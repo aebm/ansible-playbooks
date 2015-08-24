@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  vars:
+    packages:
+      - pavucontrol
+  tasks:
+    - name: install packages
+      apt:
+        update_cache=yes
+        cache_valid_time=3600
+        name={{ item }}
+        state=latest
+        install_recommends=no
+      with_items: packages     
