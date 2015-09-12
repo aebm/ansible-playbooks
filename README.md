@@ -16,3 +16,13 @@ Playbooks to provision machines
   
   $ pip install -U ansible
   ```
+* Create inventory file
+
+  ```bash
+  $ echo "localhost ansible_connection=local ansible_become=true" > inventory
+  ```
+* Test Ansible
+
+  ```bash
+  $ ansible all -i inventory --ask-become-pass -m setup
+  ```
