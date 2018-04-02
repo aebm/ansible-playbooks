@@ -2,7 +2,10 @@
 - hosts: localhost
   vars:
     packages:
+      - arandr
       - pavucontrol
+      - mate-terminal
+      - vim-gtk
   tasks:
     - name: install packages
       apt:

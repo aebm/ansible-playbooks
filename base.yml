@@ -1,0 +1,47 @@
+---
+- hosts: localhost
+  vars:
+    packages:
+      - aptitude
+      - atop
+      - apt-listbugs
+      - apt-listchanges
+      - bash-completion
+      - bc
+      - blktrace
+      - cgroup-tools
+      - coreutils
+      - cpufrequtils
+      - cryptsetup
+      - curl
+      - diffutils
+      - dkms
+      - gdb
+      - git
+      - htop
+      - less
+      - lsof
+      - ltrace
+      - strace
+      - powertop
+      - procps
+      - vim
+      - module-assistant
+      - netcat-openbsd
+      - network-manager
+      - network-manager
+      - nmap
+      - numactl
+      - ntfs-3g
+      - openssh-server
+      - postfix
+
+  tasks:
+    - name: install packages
+      apt:
+        update_cache=yes
+        cache_valid_time=3600
+        name={{ item }}
+        state=present
+        install_recommends=no
+      with_items: packages     
